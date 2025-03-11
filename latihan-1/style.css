@@ -1,0 +1,92 @@
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f3c5;
+}
+
+header {
+    background-color: #e9e648;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 20px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #888529;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+    display: inline-block;
+}
+
+nav ul li a:hover {
+    background-color: #004494;
+    border-radius: 5px;
+}
+
+.kategori, .buku-unggulan {
+    text-align: center;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.kategori ul {
+    list-style: none;
+    padding: 0;
+}
+
+.kategori ul li {
+    background-color: #ffc107;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.buku-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.buku {
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 200px;
+}
+
+.buku img {
+    width: 100%;
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+
+.buku img:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 600px) {
+    .buku-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}

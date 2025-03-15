@@ -1,0 +1,69 @@
+body {
+    background-color: #fff5f5;
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2, h4 {
+    color: #800000;
+}
+
+#quiz-container, #start-screen, #result-screen {
+    background-color: #ffe6e6;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(179, 0, 0, 0.2);
+    max-width: 600px;
+}
+
+.btn-option {
+    width: 100%;
+    max-width: 400px;
+    border-color: #cc0000;
+    color: #cc0000;
+    font-weight: 500;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-option:hover {
+    background-color: #cc0000;
+    color: #fff;
+}
+
+.btn-option.correct {
+    background-color: #28a745 !important;
+    color: #fff;
+    border-color: #28a745 !important;
+}
+
+.btn-option.incorrect {
+    background-color: #dc3545 !important;
+    color: #fff;
+    border-color: #dc3545 !important;
+}
+
+.feedback {
+    font-size: 18px;
+    font-weight: bold;
+    height: 30px;
+}
+
+#next-btn:disabled {
+    background-color: #ccc;
+    border-color: #ccc;
+}
+
+.progress {
+    background-color: #f8d7da;
+}
+
+.progress-bar {
+    transition: width 0.5s ease;
+}
+
+#score {
+    font-size: 22px;
+    font-weight: bold;
+    color: #b30000;
+}

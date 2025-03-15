@@ -3,46 +3,151 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kalkulator Sederhana</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
+  <title>Kalkulator Biru</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #1e3c72, #2a5298);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color: #fff;
+    }
+
+    .calculator {
+      background-color: #f0f8ff;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+      width: 320px;
+    }
+
+    #display {
+      width: 100%;
+      height: 60px;
+      margin-bottom: 20px;
+      text-align: right;
+      font-size: 2rem;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      background-color: #e6f0fa;
+      color: #333;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .button {
+      padding: 20px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      background-color: #2a74d6;
+      color: #fff;
+      transition: background-color 0.3s, transform 0.2s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .button:hover {
+      background-color: #1d5bbf;
+      transform: translateY(-2px);
+    }
+
+    .button:active {
+      background-color: #164a9e;
+      transform: translateY(0);
+    }
+
+    .button.operator {
+      background-color: #1c3f77;
+    }
+
+    .button.operator:hover {
+      background-color: #142e59;
+    }
+
+    .button.clear {
+      background-color: #d9534f;
+    }
+
+    .button.clear:hover {
+      background-color: #c9302c;
+    }
+
+    .button.equal {
+      background-color: #5cb85c;
+      grid-column: span 2;
+    }
+
+    .button.equal:hover {
+      background-color: #4cae4c;
+    }
+
+  </style>
 </head>
 <body>
-  <div class="container text-center mt-5">
-      <h2 class="mb-4">Kalkulator Sederhana</h2>
-      <div class="card p-3 shadow-sm">
-          <input type="text" id="display" class="form-control mb-2 text-end" readonly>
-          <div class="row">
-              <button class="btn btn-secondary col-3" onclick="clearDisplay()">C</button>
-              <button class="btn btn-secondary col-3" onclick="appendCharacter('/')">/</button>
-              <button class="btn btn-secondary col-3" onclick="appendCharacter('*')">*</button>
-              <button class="btn btn-danger col-3" onclick="deleteCharacter()">⌫</button>
-          </div>
-          <div class="row mt-2">
-              <button class="btn btn-light col-3" onclick="appendCharacter('7')">7</button>
-              <button class="btn btn-light col-3" onclick="appendCharacter('8')">8</button>
-              <button class="btn btn-light col-3" onclick="appendCharacter('9')">9</button>
-              <button class="btn btn-secondary col-3" onclick="appendCharacter('-')">-</button>
-          </div>
-          <div class="row mt-2">
-              <button class="btn btn-light col-3" onclick="appendCharacter('4')">4</button>
-              <button class="btn btn-light col-3" onclick="appendCharacter('5')">5</button>
-              <button class="btn btn-light col-3" onclick="appendCharacter('6')">6</button>
-              <button class="btn btn-secondary col-3" onclick="appendCharacter('+')">+</button>
-          </div>
-          <div class="row mt-2">
-              <button class="btn btn-light col-3" onclick="appendCharacter('1')">1</button>
-              <button class="btn btn-light col-3" onclick="appendCharacter('2')">2</button>
-              <button class="btn btn-light col-3" onclick="appendCharacter('3')">3</button>
-              <button class="btn btn-primary col-3" onclick="calculateResult()">=</button>
-          </div>
-          <div class="row mt-2">
-              <button class="btn btn-light col-6" onclick="appendCharacter('0')">0</button>
-              <button class="btn btn-light col-3" onclick="appendCharacter('.')">.</button>
-          </div>
-      </div>
+
+  <div class="calculator">
+    <input type="text" id="display" readonly>
+    <div class="buttons">
+      <button class="button clear" onclick="clearDisplay()">C</button>
+      <button class="button operator" onclick="deleteCharacter()">⌫</button>
+      <button class="button operator" onclick="appendCharacter('%')">%</button>
+      <button class="button operator" onclick="appendCharacter('/')">/</button>
+
+      <button class="button" onclick="appendCharacter('7')">7</button>
+      <button class="button" onclick="appendCharacter('8')">8</button>
+      <button class="button" onclick="appendCharacter('9')">9</button>
+      <button class="button operator" onclick="appendCharacter('*')">×</button>
+
+      <button class="button" onclick="appendCharacter('4')">4</button>
+      <button class="button" onclick="appendCharacter('5')">5</button>
+      <button class="button" onclick="appendCharacter('6')">6</button>
+      <button class="button operator" onclick="appendCharacter('-')">-</button>
+
+      <button class="button" onclick="appendCharacter('1')">1</button>
+      <button class="button" onclick="appendCharacter('2')">2</button>
+      <button class="button" onclick="appendCharacter('3')">3</button>
+      <button class="button operator" onclick="appendCharacter('+')">+</button>
+
+      <button class="button" onclick="appendCharacter('0')">0</button>
+      <button class="button" onclick="appendCharacter('.')">.</button>
+      <button class="button equal" onclick="calculateResult()">=</button>
+    </div>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    let display = document.getElementById('display');
+
+    function appendCharacter(char) {
+      display.value += char;
+    }
+
+    function clearDisplay() {
+      display.value = '';
+    }
+
+    function deleteCharacter() {
+      display.value = display.value.slice(0, -1);
+    }
+
+    function calculateResult() {
+      try {
+        display.value = eval(display.value);
+      } catch (e) {
+        alert('Kesalahan dalam perhitungan!');
+        clearDisplay();
+      }
+    }
+  </script>
+
 </body>
 </html>
